@@ -35,4 +35,4 @@
 | -------------------------- | ---------- | --------------------------------------- | ------- |
 | twitter_original_edges.csv |     5      | 7135362, 42013, 633, 4, 0               | 402s    |
 
-###### From the data it appears that lowering the number of worker nodes and lowering the cores for each worker node increases the amount of time it takes for the algorithm to run. The configuration with 4 worker nodes with 2 cores each had a shorter runtime than the configuration with 3 worker nodes with 4 cores each which perhaps suggests that the amount of worker nodes makes a larger impact on the runtime than the cores for each worker node.
+###### From the data it appears that lowering the number of worker nodes and lowering the cores for each worker node increases the amount of time it takes for the algorithm to run. The configuration with 4 worker nodes with 2 cores each had a shorter runtime than the configuration with 3 worker nodes with 4 cores each which perhaps suggests that the amount of worker nodes makes a larger impact on the runtime than the amount of cores for each worker node.
