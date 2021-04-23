@@ -13,18 +13,26 @@
 ### Running LubyMIS locally
 |        Graph file       | Iterations | Runtime |
 | ----------------------- | ---------- | ------- |
-| small_edges.csv         |            |         |
-| line_100_edges.csv      |            |         |
-| twitter_100_edges.csv   |            |         |
-| twitter_10000_edges.csv |            |         |
-| twitter_10000_edges.csv |            |         |
+| small_edges.csv         |    1       |    2s   |
+| line_100_edges.csv      |    3       |    5s   |
+| twitter_100_edges.csv   |    2       |    2s   |
+| twitter_10000_edges.csv |    2       |    2s   |
+| twitter_10000_edges.csv |    3       |    3s   |
 
 ### Running LubyMIS on GCP
 ##### 3x4 Cores on twitter_original_edges.csv
+|        Graph file          | Iterations | Remaining Vertices After Each Iteration | Runtime |
+| -------------------------- | ---------- | --------------------------------------- | ------- |
+| twitter_original_edges.csv |     5      | 6793623, 39692, 558, 3, 0               | 167s    |
 
 ##### 4x2 Cores on twitter_original_edges.csv
+|        Graph file          | Iterations | Remaining Vertices After Each Iteration | Runtime |
+| -------------------------- | ---------- | --------------------------------------- | ------- |
+| twitter_original_edges.csv |     4      | 6972866, 35697, 395, 0                  | 117s    |
 
 ##### 2x2 Cores on twitter_original_edges.csv
-3. **(3 points)**  
-a. Run `LubyMIS` on `twitter_original_edges.csv` in GCP with 3x4 cores. Report the number of iterations, running time, and remaining active vertices (i.e. vertices whose status has yet to be determined) at the end of **each iteration**. You may need to include additional print statements in `LubyMIS` in order to acquire this information. Finally, verify your outputs with `verifyMIS`.  
-b. Run `LubyMIS` on `twitter_original_edges.csv` with 4x2 cores and then 2x2 cores. Compare the running times between the 3 jobs with varying core specifications that you submitted in **3a** and **3b**.
+|        Graph file          | Iterations | Remaining Vertices After Each Iteration | Runtime |
+| -------------------------- | ---------- | --------------------------------------- | ------- |
+| twitter_original_edges.csv |     5      | 7135362, 42013, 633, 4, 0               | 402s    |
+
+###### From the data it appears that lowering the number of worker nodes and lowering the cores for each worker node increases the amount of time it takes for the algorithm to run. The configuration with 4 worker nodes with 2 cores each had a shorter runtime than the configuration with 3 worker nodes with 4 cores each which perhaps suggests that the amount of worker nodes makes a larger impact on the runtime than the cores for each worker node.
